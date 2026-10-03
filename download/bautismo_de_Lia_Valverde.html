@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Bautismo - Lia Valverde</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+  @page {
+    size: 279.4mm 215.9mm;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 279.4mm;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 279.4mm;
+    height: 215.9mm;
+    display: flex;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+    background: #ffffff;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  .panel {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  /* ==================== PAGE 1: OUTSIDE ==================== */
+  /* LEFT: Back of brochure */
+  .back-panel {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 28px;
+    position: relative;
+  }
+
+  .back-frame {
+    position: absolute;
+    top: 18px; left: 18px; right: 18px; bottom: 18px;
+    border: 1px solid #1a4f72;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .back-frame-inner {
+    position: absolute;
+    top: 24px; left: 24px; right: 24px; bottom: 24px;
+    border: 0.5px solid #5a8bb8;
+    pointer-events: none;
+  }
+
+  .back-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 320px;
+  }
+
+  .back-scripture-ref {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: #1a4f72;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .back-ornament {
+    width: 50px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .back-ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1a4f72, transparent);
+  }
+  .back-ornament .diamond {
+    width: 5px;
+    height: 5px;
+    background: #1a4f72;
+    transform: rotate(45deg);
+  }
+
+  .back-scripture-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #2c2c2c;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .back-scripture-cite {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    color: #1a4f72;
+    letter-spacing: 1.5px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .back-divider-ornate {
+    width: 100%;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 auto 24px;
+  }
+  .back-divider-ornate .line {
+    flex: 0 0 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1a4f72, transparent);
+  }
+  .back-divider-ornate .symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #1a4f72;
+  }
+
+  .back-prophet-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    color: #1a4f72;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .back-prophet-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #2c2c2c;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .back-prophet-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 12.5px;
+    color: #1a1a1a;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .back-prophet-cite {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    color: #1a4f72;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+
+  /* RIGHT: FRONT COVER - WHITE, SIMPLE, ELEGANT - BLUE */
+  .front-panel {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 24px;
+    position: relative;
+  }
+
+  .front-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+  }
+  .front-corner.tl { top: 16px; left: 16px; border-top: 1px solid #1a4f72; border-left: 1px solid #1a4f72; }
+  .front-corner.tr { top: 16px; right: 16px; border-top: 1px solid #1a4f72; border-right: 1px solid #1a4f72; }
+  .front-corner.bl { bottom: 16px; left: 16px; border-bottom: 1px solid #1a4f72; border-left: 1px solid #1a4f72; }
+  .front-corner.br { bottom: 16px; right: 16px; border-bottom: 1px solid #1a4f72; border-right: 1px solid #1a4f72; }
+
+  .front-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+  }
+
+  .church-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #1a4f72;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .church-name-full {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11.5px;
+    color: #5d8bb8;
+    letter-spacing: 1.5px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .front-divider-top {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1a4f72, transparent);
+    margin: 0 auto 24px;
+  }
+
+  /* LDS Church logo - Christus statue in blue */
+  .church-logo {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+
+  .front-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 2.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .front-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #1a4f72;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .front-divider-bottom {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1a4f72, transparent);
+    margin: 0 auto 22px;
+  }
+
+  .front-name-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a4f72;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .front-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #1a1a1a;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .front-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #5d8bb8;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+
+
+  /* ==================== PAGE 2: INSIDE ==================== */
+  /* LEFT: PROGRAM */
+  .program-panel {
+    background: #ffffff;
+    padding: 26px 22px 22px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .program-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: #1a4f72;
+    opacity: 0.7;
+  }
+
+  .program-header {
+    text-align: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #5a8bb8;
+    position: relative;
+  }
+
+  .program-header::after {
+    content: '\2726';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    padding: 0 8px;
+    font-size: 14px;
+    color: #1a4f72;
+    line-height: 1;
+  }
+
+  .program-header-church {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #1a4f72;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .program-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #1a1a1a;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .program-header-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11.5px;
+    color: #1a4f72;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .program-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 6px;
+  }
+
+  .program-item {
+    display: flex;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px dotted #5a8bb8;
+  }
+
+  .program-item:last-child {
+    border-bottom: none;
+  }
+
+  .program-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    color: #1a4f72;
+    width: 22px;
+    flex-shrink: 0;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .program-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    color: #1a1a1a;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .program-detail {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11.5px;
+    color: #4a4a4a;
+    font-style: italic;
+    text-align: right;
+    max-width: 150px;
+    font-weight: 500;
+  }
+
+  .program-detail-hymn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: #4a4a4a;
+    font-style: italic;
+    text-align: right;
+    max-width: 150px;
+    font-weight: 500;
+  }
+
+  .program-footer {
+    text-align: center;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #5a8bb8;
+    position: relative;
+  }
+
+  .program-footer::before {
+    content: '\2726 \2726 \2726';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    padding: 0 10px;
+    font-size: 9px;
+    color: #1a4f72;
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+
+  .program-footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10.5px;
+    color: #4a4a4a;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    line-height: 1.55;
+  }
+
+
+  /* RIGHT: HYMN LYRICS */
+  .hymn-panel {
+    background: #ffffff;
+    padding: 26px 28px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .hymn-panel::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 3px;
+    height: 100%;
+    background: #1a4f72;
+    opacity: 0.4;
+  }
+
+  .hymn-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hymn-block {
+    margin-bottom: 14px;
+  }
+
+  .hymn-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .hymn-header {
+    text-align: center;
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #5a8bb8;
+    position: relative;
+  }
+
+  .hymn-header::after {
+    content: '\25C6';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    padding: 0 6px;
+    font-size: 8px;
+    color: #1a4f72;
+    line-height: 1;
+  }
+
+  .hymn-number-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #1a4f72;
+    font-weight: 500;
+  }
+
+  .hymn-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  .hymn-verse {
+    margin-bottom: 7px;
+  }
+
+  .hymn-verse-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1a4f72;
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+
+  .hymn-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #2c2c2c;
+    font-weight: 400;
+  }
+
+  .hymn-divider {
+    width: 30px;
+    height: 1px;
+    background: #5a8bb8;
+    margin: 6px auto;
+  }
+
+  .hymn-section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #5a8bb8, transparent);
+    margin: 8px 0;
+    position: relative;
+  }
+
+  .hymn-section-divider::before {
+    content: '\2726';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 0 8px;
+    font-size: 10px;
+    color: #1a4f72;
+    line-height: 1;
+  }
+
+  @media screen {
+    html, body {
+      background: #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      width: auto;
+    }
+    .page {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border-radius: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: OUTSIDE ==================== -->
+<div class="page">
+  <!-- LEFT: Back of brochure -->
+  <div class="panel back-panel">
+    <div class="back-frame"></div>
+    <div class="back-frame-inner"></div>
+
+    <div class="back-content">
+      <div class="back-scripture-ref">Las Sagradas Escrituras</div>
+
+      <div class="back-ornament">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
+      </div>
+
+      <div class="back-scripture-text">
+        "Y acontecio que cuando hubieron descendido al agua, el siervo del Senor le bautizo; 
+        y cuando salio del agua, el Espiritu Santo cayo sobre el, y vinieron angeles y 
+        ministraron a el."
+      </div>
+
+      <div class="back-scripture-cite">- 3 Nefi 19:11-12</div>
+
+      <div class="back-divider-ornate">
+        <div class="line"></div>
+        <div class="symbol">&#10022;</div>
+        <div class="line"></div>
+      </div>
+
+      <div class="back-prophet-label">Palabras del Profeta</div>
+
+      <div class="back-prophet-quote">
+        "El bautismo es una ordenanza sagrada que simboliza la muerte del hombre natural 
+        y el nacimiento de una nueva vida en Cristo. Es el primer paso en el camino 
+        del convenio que nos conduce de regreso a nuestro Padre Celestial."
+      </div>
+
+      <div class="back-prophet-name">Presidente Russell M. Nelson</div>
+      <div class="back-prophet-cite">Profeta, Vidente y Revelador</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Front cover -->
+  <div class="panel front-panel">
+    <div class="front-corner tl"></div>
+    <div class="front-corner tr"></div>
+    <div class="front-corner bl"></div>
+    <div class="front-corner br"></div>
+
+    <div class="front-content">
+      <div class="church-line">La Iglesia de</div>
+      <div class="church-name-full">Jesucristo de los Santos de los Ultimos Dias</div>
+      
+      <div class="front-divider-top"></div>
+
+      <!-- LDS Church Logo: Christus statue silhouette in a circle (blue version) -->
+      <div class="church-logo">
+        <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2d7da8"/>
+              <stop offset="50%" stop-color="#1a4f72"/>
+              <stop offset="100%" stop-color="#0c2d48"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Outer decorative ring -->
+          <circle cx="55" cy="55" r="52" fill="none" stroke="url(#blueGrad)" stroke-width="1.2"/>
+          <circle cx="55" cy="55" r="48" fill="none" stroke="url(#blueGrad)" stroke-width="0.4" opacity="0.5"/>
+          
+          <!-- Inner circle background (subtle blue tint) -->
+          <circle cx="55" cy="55" r="46" fill="#f4f9fd"/>
+          
+          <!-- Christus statue silhouette -->
+          <g fill="url(#blueGrad)" opacity="0.9">
+            <!-- Head -->
+            <ellipse cx="55" cy="28" rx="4" ry="5"/>
+            <!-- Hair waves -->
+            <path d="M 51 26 Q 50 22, 52 20 Q 55 19, 58 20 Q 60 22, 59 26 L 59 28 Q 55 30, 51 28 Z"/>
+            <!-- Neck -->
+            <rect x="53" y="32" width="4" height="3"/>
+            <!-- Shoulders/arms outstretched (Christus pose) -->
+            <path d="M 53 35 L 30 45 L 28 47 L 30 49 L 33 47 L 50 42 Z"/>
+            <path d="M 57 35 L 80 45 L 82 47 L 80 49 L 77 47 L 60 42 Z"/>
+            <!-- Body/robe -->
+            <path d="M 47 38 L 45 55 L 43 75 L 42 85 L 50 86 L 52 70 L 55 86 L 60 86 L 58 70 L 60 86 L 68 85 L 67 75 L 65 55 L 63 38 Z"/>
+            <!-- Robe folds -->
+            <path d="M 50 45 L 49 70 L 48 82" stroke="#0c2d48" stroke-width="0.3" fill="none" opacity="0.6"/>
+            <path d="M 60 45 L 61 70 L 62 82" stroke="#0c2d48" stroke-width="0.3" fill="none" opacity="0.6"/>
+            <path d="M 55 40 L 55 80" stroke="#0c2d48" stroke-width="0.3" fill="none" opacity="0.5"/>
+          </g>
+          
+          <!-- Base/pedestal -->
+          <ellipse cx="55" cy="88" rx="15" ry="2" fill="url(#blueGrad)" opacity="0.6"/>
+          <rect x="42" y="88" width="26" height="3" fill="url(#blueGrad)" opacity="0.7"/>
+          <ellipse cx="55" cy="91" rx="14" ry="1.5" fill="url(#blueGrad)" opacity="0.5"/>
+          
+          <!-- Decorative dots around the circle -->
+          <g fill="url(#blueGrad)" opacity="0.5">
+            <circle cx="55" cy="6" r="1"/>
+            <circle cx="75" cy="11" r="0.8"/>
+            <circle cx="92" cy="25" r="0.8"/>
+            <circle cx="100" cy="45" r="0.8"/>
+            <circle cx="103" cy="65" r="0.8"/>
+            <circle cx="100" cy="85" r="0.8"/>
+            <circle cx="92" cy="100" r="0.8"/>
+            <circle cx="75" cy="106" r="0.8"/>
+            <circle cx="55" cy="108" r="1"/>
+            <circle cx="35" cy="106" r="0.8"/>
+            <circle cx="18" cy="100" r="0.8"/>
+            <circle cx="10" cy="85" r="0.8"/>
+            <circle cx="7" cy="65" r="0.8"/>
+            <circle cx="10" cy="45" r="0.8"/>
+            <circle cx="18" cy="25" r="0.8"/>
+            <circle cx="35" cy="11" r="0.8"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="front-title">Bautismo</div>
+      <div class="front-subtitle">Y Confirmacion</div>
+
+      <div class="front-divider-bottom"></div>
+
+      <div class="front-name-label">En honor de</div>
+      <div class="front-name">Lia Valverde</div>
+
+      <div class="front-date">_________________________</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: INSIDE (Program + Hymns) ==================== -->
+<div class="page">
+  <!-- LEFT: Program -->
+  <div class="panel program-panel">
+    <div class="program-header">
+      <div class="program-header-church">La Iglesia de Jesucristo de los Santos de los Ultimos Dias</div>
+      <div class="program-header-title">Programa de Bautismo</div>
+      <div class="program-header-subtitle">Y Confirmacion</div>
+    </div>
+
+    <div class="program-items">
+      <div class="program-item">
+        <div class="program-number">I</div>
+        <div class="program-label">Preludio</div>
+        <div class="program-detail"></div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">II</div>
+        <div class="program-label">Himno de Apertura</div>
+        <div class="program-detail-hymn">#196 Soy un hijo de Dios</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">III</div>
+        <div class="program-label">Oracion</div>
+        <div class="program-detail"></div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">IV</div>
+        <div class="program-label">Discurso sobre el Bautismo</div>
+        <div class="program-detail-hymn">Gabo Garcia</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">V</div>
+        <div class="program-label">Himno Especial</div>
+        <div class="program-detail-hymn">#138 Senor, yo te seguire</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">VI</div>
+        <div class="program-label">Bautismo</div>
+        <div class="program-detail"></div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">VII</div>
+        <div class="program-label">Cambio de Ropa</div>
+        <div class="program-detail"></div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">VIII</div>
+        <div class="program-label">Discurso sobre el Espiritu Santo</div>
+        <div class="program-detail-hymn">Norma Navarrete</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">IX</div>
+        <div class="program-label">Confirmacion y Don del E.S.</div>
+        <div class="program-detail"></div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">X</div>
+        <div class="program-label">Himno de Clausura</div>
+        <div class="program-detail-hymn">#138 Senor, yo te seguire</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-number">XI</div>
+        <div class="program-label">Oracion</div>
+        <div class="program-detail"></div>
+      </div>
+    </div>
+
+    <div class="program-footer">
+      <div class="program-footer-text">
+        "Arrepentios, y bauticese cada uno de vosotros en el nombre de Jesucristo 
+        para perdon de vuestros pecados; y recibireis el don del Espiritu Santo."
+        <br><strong style="color: #1a1a1a; font-style: normal;">- Hechos 2:38</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Hymn Lyrics -->
+  <div class="panel hymn-panel">
+    <div class="hymn-section">
+
+      <!-- Hymn 1: Soy un hijo de Dios #196 -->
+      <div class="hymn-block">
+        <div class="hymn-header">
+          <div class="hymn-number-label">Himno No. 196</div>
+          <div class="hymn-title">Soy un hijo de Dios</div>
+        </div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Estrofa 1</div>
+          <div class="hymn-line">
+            Soy un hijo de Dios, y el me ha enviado aqui;<br>
+            si con El quiero estar, su palabra sere yo fiel.<br>
+            Me ha dado un dulce hogar, do puede morar;<br>
+            si a su lado me siento fiel, llegare a El.
+          </div>
+        </div>
+
+        <div class="hymn-divider"></div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Coro</div>
+          <div class="hymn-line">
+            Llevame a su hogar, guame por doquier,<br>
+            ensename el camino y el sendero que<br>
+            me llevan a Dios, a su reino de amor;<br>
+            que he de vivir con Dios.
+          </div>
+        </div>
+
+        <div class="hymn-divider"></div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Estrofa 2</div>
+          <div class="hymn-line">
+            Soy un hijo de Dios; bendito don;<br>
+            si obro su voluntad, el me guardara.<br>
+            El me guio a la luz, al celeste hogar;<br>
+            do con El voy a morar por la eternidad.
+          </div>
+        </div>
+      </div>
+
+      <div class="hymn-section-divider"></div>
+
+      <!-- Hymn 2: Senor, yo te seguire #138 -->
+      <div class="hymn-block">
+        <div class="hymn-header">
+          <div class="hymn-number-label">Himno No. 138</div>
+          <div class="hymn-title">Senor, yo te seguire</div>
+        </div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Estrofa 1</div>
+          <div class="hymn-line">
+            Senor, yo te seguire donde me guies ire;<br>
+            te seguire, te seguire, te seguire, Senor.
+          </div>
+        </div>
+
+        <div class="hymn-divider"></div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Estrofa 2</div>
+          <div class="hymn-line">
+            Tu cruz yo tomare, tu ley guardare;<br>
+            te seguire, te seguire, te seguire, Senor.
+          </div>
+        </div>
+
+        <div class="hymn-divider"></div>
+
+        <div class="hymn-verse">
+          <div class="hymn-verse-label">Estrofa 3</div>
+          <div class="hymn-line">
+            Si en pruebas yo estuviere, no temere;<br>
+            te seguire, te seguire, te seguire, Senor.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
